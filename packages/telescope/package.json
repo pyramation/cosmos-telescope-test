@@ -1,0 +1,48 @@
+{
+  "name": "@pyramation/cosmos-telescope-test",
+  "version": "0.0.1",
+  "author": "Dan Lynch <pyramation@gmail.com>",
+  "description": "testing",
+  "main": "index.js",
+  "module": "esm/index.js",
+  "types": "index.d.ts",
+  "homepage": "https://github.com/pyramation/cosmos-telescope-test",
+  "license": "SEE LICENSE IN LICENSE",
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pyramation/cosmos-telescope-test"
+  },
+  "bugs": {
+    "url": "https://github.com/pyramation/cosmos-telescope-test/issues"
+  },
+  "scripts": {
+    "copy": "copyfiles -f ../../LICENSE README.md package.json dist",
+    "clean": "del dist/**",
+    "prepare": "npm run build",
+    "codegen": "ts-node scripts/codegen.ts",
+    "build": "npm run clean; tsc; tsc -p tsconfig.esm.json; npm run copy",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "@cosmology/telescope": "^1.0.1",
+    "@protobufs/amino": "^0.0.11",
+    "@protobufs/confio": "^0.0.6",
+    "@protobufs/cosmos": "^0.1.0",
+    "@protobufs/cosmos_proto": "^0.0.10",
+    "@protobufs/cosmwasm": "^0.1.1",
+    "@protobufs/ibc": "^0.1.0"
+  },
+  "dependencies": {
+    "@cosmjs/encoding": "0.32.3",
+    "@cosmjs/math": "0.32.3",
+    "@cosmjs/amino": "0.32.3",
+    "@cosmjs/proto-signing": "0.32.3",
+    "@cosmjs/stargate": "0.32.3"
+  },
+  "keywords": []
+}
